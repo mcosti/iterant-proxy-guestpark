@@ -1,0 +1,45 @@
+{
+  "name": "iterant-proxy-guestpark",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "description": "Cloudflare Worker that proxies requests to the Iterant platform for seamless landing page integration",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "lint": "eslint src/",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "keywords": [
+    "cloudflare",
+    "worker",
+    "proxy",
+    "iterant"
+  ],
+  "author": "Iterant AI",
+  "license": "MIT",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20251219.0",
+    "@typescript-eslint/eslint-plugin": "^8.50.0",
+    "@typescript-eslint/parser": "^8.50.0",
+    "eslint": "^9.39.2",
+    "prettier": "^3.7.4",
+    "typescript": "^5.9.3",
+    "wrangler": "^4.56.0"
+  },
+  "cloudflare": {
+    "bindings": {
+      "TARGET_HOST": {
+        "description": "The Iterant origin that serves your pages, host only. Iterant gives you this: it looks like your-brand.iterant.site."
+      },
+      "BRAND_ID": {
+        "description": "The brand this proxy serves, a UUID from your Iterant dashboard."
+      },
+      "CACHE_TTL": {
+        "description": "Seconds to cache a proxied page at the edge. 3600 is a good default; 0 caches nothing."
+      }
+    }
+  }
+}

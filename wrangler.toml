@@ -1,0 +1,14 @@
+name = "iterant-proxy-guestpark"
+main = "src/index.ts"
+compatibility_date = "2026-09-21"
+
+[vars]
+# The Iterant origin that serves your brand's pages, host only, no scheme.
+# Iterant gives you this value: it looks like your-brand.iterant.site.
+TARGET_HOST = "guestparknl3495.staging.iterant.site"
+
+# The brand this proxy serves. A UUID, from your Iterant dashboard.
+BRAND_ID = "3d5b8cfc-a4d4-4637-8e94-77ecff993b2d"
+
+# Seconds to cache a proxied page at the edge. Set to 0 to cache nothing.
+CACHE_TTL = "3600"
